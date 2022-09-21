@@ -12,11 +12,6 @@ Pokemon
 
 
 ## Prototype
-There has been few changes after the prototype was made:
-- The header does not have any profile info because of personal styling choices.
-- Login page now only directs the user to the translation page
-- Profile page have recent translations and profile actions, which includes the actions: logout and clear translations history
- 
 ![]()
 
 
