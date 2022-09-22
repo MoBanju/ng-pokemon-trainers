@@ -12,7 +12,8 @@ Pokemon
 
 
 ## Prototype
-![]()
+![component-tree](./docs/component_tree.png)
+![service](./docs/services.png)
 
 
 ## Link
