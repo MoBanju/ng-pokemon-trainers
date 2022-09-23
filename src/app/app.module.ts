@@ -15,7 +15,9 @@ import { CatalogueDetailedPageComponent } from './catalogue-detailed/catalogue-d
 import { PokemonDisplayComponent } from './catalogue-detailed/pokemon-display/pokemon-display.component';
 import { HeaderComponent } from './header/header/header.component';
 import { UserLogoComponent } from './header/user-logo/user-logo.component';
-import { AppRoutingModule } from './app-routing/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
+import {HttpClientModule} from '@angular/common/http'
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    FormsModule,
     AppRoutingModule,
   ],
   providers: [],
