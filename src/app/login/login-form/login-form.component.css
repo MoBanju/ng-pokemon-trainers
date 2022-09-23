@@ -1,14 +1,22 @@
 form{
-    width: 80%;
+    width: 40%;
     margin: 0 auto;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    padding-bottom: 10%;
+    padding-bottom: 4%;
+    background-color: white;
+    opacity: 0.9;
+    border-radius: 15px;
+    margin-top: 8%;
+    border-bottom: 50px solid rgb(195, 233, 130);
 }
 
 fieldset {
-    height: 150px;
+    height: 100px;
     border: 0px;
-    padding-top: 5%;
+    padding-top: 6%;
+    background-color: white;
+    border-radius: 15px;
+    opacity: 0.9;
 }
 
 input{
@@ -22,6 +30,7 @@ input{
 
 input::placeholder{
     font-size: 200%;
+    opacity: 1;
 }
 button{
     height: 60px;
@@ -29,5 +38,18 @@ button{
     font-size: xx-large;
     display: block;
     margin:0 auto;
-    border-radius: 6px;
+    border: 0;
+    color: rgb(0, 0, 0);
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: rgb(195, 233, 130);
+}
+
+button:focus{
+    outline: 0;
+}
+
+button:hover{
+    opacity: 0.8;
+    transition: .3s;
 }

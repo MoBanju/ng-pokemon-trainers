@@ -1,1 +1,17 @@
-<p>pokemon-display works!</p>
+<div *ngIf="pokemon" class="pokemon" [ngClass]="pokemon.type">
+    <h3 class="pokemon-title">{{pokemon.name}}</h3>
+    <div class="pokemon-image-container">
+        <img [src]="pokemon.image" class="pokemon-image"/>
+    </div>
+    <div class="pokemon-properties">
+        <p>Height: {{pokemon.height}}, weight: {{pokemon.weight}} lbs.</p>
+    </div>
+    <ul class="pokemon-abilities">
+        <li *ngFor="let ability of pokemon.abilities">
+            {{ability}}
+        </li>
+    </ul>
+</div>
+<div *ngIf="!pokemon">
+    Fetching pokemon
+</div>

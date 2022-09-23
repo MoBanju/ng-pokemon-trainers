@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.css']
 })
-export class LoginPageComponent {
+export class LoginPageComponent  {
 
   constructor(private readonly router: Router) { }
 
@@ -14,3 +14,4 @@ export class LoginPageComponent {
     this.router.navigateByUrl("/trainer")
   }
 }
+

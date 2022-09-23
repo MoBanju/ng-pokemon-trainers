@@ -1,1 +1,7 @@
-<p>pokemon-card works!</p>
+<div *ngIf="pokemon" class="card">
+        <img [src]="pokemon.image" class="card-img">
+        <div class="card-body">
+                <h5>{{pokemon.name}}</h5>
+                <a [routerLink]="pokemon.id.toString()" class="card-button">Details</a>
+        </div>
+</div>
