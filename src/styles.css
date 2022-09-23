@@ -1,1 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+html{
+    background-image: url(https://wallpapercave.com/wp/wp2711114.gif);
+    background-repeat:repeat-y;
+    background-size: 100%;
+    background-position: center;
+}
