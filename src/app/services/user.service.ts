@@ -18,11 +18,14 @@ export class UserService {
     StorageUtil.storageSave<Trainer>(StorageKeys.Trainer, user!)
     this._user = user;
   }
+  getUsername() {
+    if(this._user !== undefined){
+      return JSON.parse(sessionStorage.getItem('pokemon-trainer')!).username;
+    }
+}
 
   constructor() { 
     this._user = StorageUtil.storageRead<Trainer>(StorageKeys.Trainer)
-
-
 
   }
 }
