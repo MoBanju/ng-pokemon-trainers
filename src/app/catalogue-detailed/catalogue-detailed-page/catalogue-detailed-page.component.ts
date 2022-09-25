@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PokemonDetailed } from 'src/app/models/pokemon-detailed.model';
@@ -19,7 +20,14 @@ export class CatalogueDetailedPageComponent implements OnInit {
 
   ngOnInit(): void {
     let id = Number(this.route.snapshot.paramMap.get('id'));
-    this.pokemonService.getPokemon(id).subscribe(pokemon => {this.pokemon = pokemon});
+    this.pokemonService.getPokemon(id).subscribe({
+      next: pokemon => {
+        this.pokemon = pokemon;
+      },
+      error: (error: HttpErrorResponse) => {
+        console.log(error);
+      }
+    })
   }
 
 }

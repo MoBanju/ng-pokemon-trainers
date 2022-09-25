@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { Pokemon } from '../../models/pokemon.model';
 import { PokemonService } from 'src/app/services/pokemon.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -10,15 +11,19 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 })
 export class PokemonListComponent implements OnInit {
 
-  pokemons: Pokemon[] = [];
+  @Input() pokemons?: Pokemon[];
 
-  constructor(
-    private readonly pokemonService: PokemonService
-  ) { }
+  @Output() getPokemons: EventEmitter<void> = new EventEmitter();
+
+  constructor() { }
 
   ngOnInit(): void {
-    this.pokemonService.getPokemons()
-      .subscribe(pokemons => this.pokemons = pokemons);
+  }
+
+  handleScroll(e: Event) {
+    let target = e.target as HTMLDivElement;
+    if(target.scrollTop + target.clientHeight === target.scrollHeight && this.getPokemons !== undefined)
+      this.getPokemons.emit();
   }
 
 }
