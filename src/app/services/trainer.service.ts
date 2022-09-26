@@ -19,6 +19,9 @@ export class TrainerService {
 
   //Dependency injecton. Injected http client into login service.
   constructor(private readonly http: HttpClient, private readonly localStorageService: LocalStorageService, private readonly router: Router) { }
+  get trainer() {
+    return this.localStorageService.user;
+  }
 
   public login(username: string): Observable<Trainer>{
     return this.checkUsername(username).pipe(switchMap((response: Trainer | undefined) =>{
