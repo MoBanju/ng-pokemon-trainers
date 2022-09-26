@@ -1,5 +1,5 @@
 # Pokemon trainer
-Pokemon
+This is an Pokemon Page, made as a Single Page Application using the Angular Framework. It is also hosted with heroku.
 
 
 ## Contributors
