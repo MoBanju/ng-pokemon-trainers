@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" (scroll)="handleScroll($event)">
     <app-pokemon-card *ngFor="let pokemon of pokemons"
         [pokemon]="pokemon"
     >

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
   selector: 'app-catalogue-page',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CataloguePageComponent implements OnInit {
 
-  constructor() { }
+  get pokemons() {
+    return this.pokemonService.Pokemons;
+  }
+
+  constructor(
+    private readonly pokemonService: PokemonService,
+  ) { }
 
   ngOnInit(): void {
+    if(this.pokemonService.Pokemons.length === 0)
+      this.pokemonService.Next();
+  }
+  
+  getPokemons() {
+    this.pokemonService.Next();
   }
 
 }
