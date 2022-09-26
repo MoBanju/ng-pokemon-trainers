@@ -1,45 +1,150 @@
-html{
-    background-image: url(https://wallpapercave.com/wp/wp2711114.gif);
-    background-repeat:repeat-y;
-    background-size: 100%;
-    background-position: center;
+html {
+	background-image: url(https://wallpapercave.com/wp/wp2711114.gif);
+	background-repeat: repeat-y;
+	background-size: 100%;
+	background-position: center;
 }
 
 .normal {
-    background-color: #A8A77A;
+	background-color: #A8A77A;
 }
 
-	.fire{background-color: #EE8130; }
-	.fire img{background: radial-gradient(circle, black 20%, #EE8130 100%); }
-	.water{background-color: #6390F0; }
-	.water img{background: radial-gradient(circle, black 20%, #6390F0 100%); }
-	.electric{background-color: #F7D02C; }
-	.electric img{background: radial-gradient(circle, black 20%, #f7d02c 100%); }
-	.grass{background-color: #7AC74C; }
-	.grass img{background: radial-gradient(circle, black 20%, #7ac74c 100%); }
-	.ice{background-color: #96D9D6; }
-	.ice img{background: radial-gradient(circle, black 20%, #96d9d6 100%); }
-	.fighting{background-color: #C22E28; }
-	.fighting img{background: radial-gradient(circle, black 20%, #c22e28 100%); }
-	.poison{background-color: #A33EA1; }
-	.poison img{background: radial-gradient(circle, black 20%, #a33ea1 100%); }
-	.ground{background-color: #E2BF65; }
-	.ground img{background: radial-gradient(circle, black 20%, #e2bf65 100%); }
-	.flying{background-color: #A98FF3; }
-	.flying img{background: radial-gradient(circle, black 20%, #a98ff3 100%); }
-	.psychic{background-color: #F95587; }
-	.psychic img{background: radial-gradient(circle, black 20%, #f95587 100%); }
-	.bug{background-color: #A6B91A; }
-	.bug img{background: radial-gradient(circle, black 20%, #a6b91a 100%); }
-	.rock{background-color: #B6A136; }
-	.rock img{background: radial-gradient(circle, black 20%, #b6a136 100%); }
-	.ghost{background-color: #735797; }
-	.ghost img{background: radial-gradient(circle, black 20%, #735797 100%); }
-	.dragon{background-color: #6F35FC; }
-	.dragon img{background: radial-gradient(circle, black 20%, #6f35fc 100%); }
-	.dark{background-color: #705746; }
-	.dark img{background: radial-gradient(circle, black 20%, #705746 100%); }
-	.steel{background-color: #B7B7CE; }
-	.steel img{background: radial-gradient(circle, black 20%, #b7b7ce 100%); }
-	.fairy{background-color: #D685AD; }
-	.fairy img{background: radial-gradient(circle, black 20%, #d685ad 100%); }
+.normal img {
+	background: radial-gradient(circle, black 20%, #a8a77a 100%);
+}
+
+.fire {
+	background-color: #EE8130;
+}
+
+.fire img {
+	background: radial-gradient(circle, black 20%, #EE8130 100%);
+}
+
+.water {
+	background-color: #6390F0;
+}
+
+.water img {
+	background: radial-gradient(circle, black 20%, #6390F0 100%);
+}
+
+.electric {
+	background-color: #F7D02C;
+}
+
+.electric img {
+	background: radial-gradient(circle, black 20%, #f7d02c 100%);
+}
+
+.grass {
+	background-color: #7AC74C;
+}
+
+.grass img {
+	background: radial-gradient(circle, black 20%, #7ac74c 100%);
+}
+
+.ice {
+	background-color: #96D9D6;
+}
+
+.ice img {
+	background: radial-gradient(circle, black 20%, #96d9d6 100%);
+}
+
+.fighting {
+	background-color: #C22E28;
+}
+
+.fighting img {
+	background: radial-gradient(circle, black 20%, #c22e28 100%);
+}
+
+.poison {
+	background-color: #A33EA1;
+}
+
+.poison img {
+	background: radial-gradient(circle, black 20%, #a33ea1 100%);
+}
+
+.ground {
+	background-color: #E2BF65;
+}
+
+.ground img {
+	background: radial-gradient(circle, black 20%, #e2bf65 100%);
+}
+
+.flying {
+	background-color: #A98FF3;
+}
+
+.flying img {
+	background: radial-gradient(circle, black 20%, #a98ff3 100%);
+}
+
+.psychic {
+	background-color: #F95587;
+}
+
+.psychic img {
+	background: radial-gradient(circle, black 20%, #f95587 100%);
+}
+
+.bug {
+	background-color: #A6B91A;
+}
+
+.bug img {
+	background: radial-gradient(circle, black 20%, #a6b91a 100%);
+}
+
+.rock {
+	background-color: #B6A136;
+}
+
+.rock img {
+	background: radial-gradient(circle, black 20%, #b6a136 100%);
+}
+
+.ghost {
+	background-color: #735797;
+}
+
+.ghost img {
+	background: radial-gradient(circle, black 20%, #735797 100%);
+}
+
+.dragon {
+	background-color: #6F35FC;
+}
+
+.dragon img {
+	background: radial-gradient(circle, black 20%, #6f35fc 100%);
+}
+
+.dark {
+	background-color: #705746;
+}
+
+.dark img {
+	background: radial-gradient(circle, black 20%, #705746 100%);
+}
+
+.steel {
+	background-color: #B7B7CE;
+}
+
+.steel img {
+	background: radial-gradient(circle, black 20%, #b7b7ce 100%);
+}
+
+.fairy {
+	background-color: #D685AD;
+}
+
+.fairy img {
+	background: radial-gradient(circle, black 20%, #d685ad 100%);
+}
