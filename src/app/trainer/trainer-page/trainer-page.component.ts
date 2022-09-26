@@ -14,7 +14,7 @@ export class TrainerPageComponent implements OnInit {
   private _trainer?: Trainer;
 
   get trainer() {
-    return this._trainer;
+    return this._trainer!;
   }
 
   constructor(private readonly trainerService: TrainerService, private readonly pokemonService: PokemonService) { }
