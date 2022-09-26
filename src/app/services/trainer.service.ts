@@ -3,6 +3,10 @@ import { Trainer } from '../models/trainer.model';
 import { Observable, map, of, switchMap } from 'rxjs'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { LocalStorageService } from './local-storage.service';
+import { StorageUtil } from '../utils/storage.util';
+import { Router } from '@angular/router';
+
 
 
 const  {apiTrainers, apiKey} = environment;
@@ -14,7 +18,7 @@ const  {apiTrainers, apiKey} = environment;
 export class TrainerService {
 
   //Dependency injecton. Injected http client into login service.
-  constructor(private readonly http: HttpClient) { }
+  constructor(private readonly http: HttpClient, private readonly localStorageService: LocalStorageService, private readonly router: Router) { }
 
   public login(username: string): Observable<Trainer>{
     return this.checkUsername(username).pipe(switchMap((response: Trainer | undefined) =>{
@@ -24,6 +28,11 @@ export class TrainerService {
       return of(response)
     } )
     )
+  }
+
+  public logout(){
+    StorageUtil.storageDelete<Trainer>()
+    this.router.navigateByUrl("/login")
   }
 
   //Check if user exists

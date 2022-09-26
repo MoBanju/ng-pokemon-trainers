@@ -21,5 +21,9 @@ export class StorageUtil{
         }
     
     }
+
+    static storageDelete<T>(){
+        sessionStorage.clear()
+    }
 }
 
