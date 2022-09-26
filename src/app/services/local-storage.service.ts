@@ -24,6 +24,12 @@ export class UserService {
     }
   }
 
+  getPokemons() {
+    if(this._user !== undefined){
+      return JSON.parse(sessionStorage.getItem('pokemon-trainer')!).pokemon;
+    }
+  }
+
   constructor() { 
     this._user = StorageUtil.storageRead<Trainer>(StorageKeys.Trainer)
 
