@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Trainer } from 'src/app/models/trainer.model';
 import { TrainerService } from 'src/app/services/trainer.service';
-import { UserService } from 'src/app/services/user.service';
+import { UserService } from 'src/app/services/local-storage.service';
 
 @Component({
   selector: 'app-login-form',

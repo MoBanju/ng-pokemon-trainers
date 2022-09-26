@@ -22,7 +22,7 @@ export class UserService {
     if(this._user !== undefined){
       return JSON.parse(sessionStorage.getItem('pokemon-trainer')!).username;
     }
-}
+  }
 
   constructor() { 
     this._user = StorageUtil.storageRead<Trainer>(StorageKeys.Trainer)

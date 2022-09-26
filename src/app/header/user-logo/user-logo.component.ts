@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { UserService } from 'src/app/services/user.service';
+import { UserService } from 'src/app/services/local-storage.service';
 
 @Component({
   selector: 'app-user-logo',
