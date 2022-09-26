@@ -9,6 +9,7 @@
     padding-left: 35px;
     position: relative;
     z-index: 0;
+    width: 45%;
 }
 
 .pokemon-title {
@@ -18,6 +19,8 @@
 
 .pokemon-image-container {
     position: relative;
+    width: 65%;
+    height: auto;
 }
 
 .pokemon-image-container:before {
@@ -36,6 +39,7 @@
 }
 
 .pokemon-image {
+    width: 100%;
     height: auto;
     border: 3px solid gold;
 }
