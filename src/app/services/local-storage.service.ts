@@ -6,7 +6,7 @@ import { StorageUtil } from '../utils/storage.util';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class LocalStorageService {
 
   private _user?: Trainer;
 
