@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { LocalStorageService } from './local-storage.service';
 import { StorageUtil } from '../utils/storage.util';
 import { Router } from '@angular/router';
+import { Pokemon } from '../models/pokemon.model';
 
 
 
@@ -36,6 +37,36 @@ export class TrainerService {
   public logout(){
     StorageUtil.storageDelete<Trainer>()
     this.router.navigateByUrl("/login")
+  }
+
+  public capturePokemon(pokemon: Pokemon){
+    if (!this.trainer){
+      return
+    }
+
+    if(this.trainer.pokemon.some((collectedPokemon) => collectedPokemon.id === pokemon.id)){
+      console.log("Exists already")
+      alert(`${pokemon.name} is already captured.`)
+      return
+    }
+    const headers = new HttpHeaders({
+      "Content-Type": "application/json",
+      "x-api-key": apiKey
+    })
+    this.http.patch<Trainer>(`${apiTrainers}/${this.trainer.id}`, {
+      ...this.trainer,
+      pokemon: [...this.trainer.pokemon, pokemon]
+    }, {
+      headers: headers
+    })
+    .subscribe({
+      next: (newTrainer) => {
+        this.localStorageService.user = newTrainer
+      },
+      error: (e) => {
+        console.log(e)
+      }
+    })
   }
 
   //Check if user exists

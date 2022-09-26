@@ -15,6 +15,8 @@ export class PokemonListComponent implements OnInit {
 
   @Output() getPokemons: EventEmitter<void> = new EventEmitter();
 
+  
+  @Output() capturePokemon: EventEmitter<Pokemon> = new EventEmitter();
   constructor() { }
 
   ngOnInit(): void {
@@ -24,6 +26,11 @@ export class PokemonListComponent implements OnInit {
     let target = e.target as HTMLDivElement;
     if(target.scrollTop + target.clientHeight === target.scrollHeight && this.getPokemons !== undefined)
       this.getPokemons.emit();
+  }
+
+  handleCapturePokemon(pokemon: Pokemon){
+    this.capturePokemon.emit(pokemon)
+    console.log("list "+ pokemon.name)
   }
 
 }
