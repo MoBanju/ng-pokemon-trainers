@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Pokemon } from 'src/app/models/pokemon.model';
-import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
   selector: 'app-collected-pokemon-list-item',
@@ -9,14 +8,11 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 })
 export class CollectedPokemonListItemComponent implements OnInit {
 
-  constructor(private readonly pokemonService: PokemonService) {}
+  constructor() {}
 
-   pokemon?: Pokemon
+  @Input() pokemon?: Pokemon;
 
   ngOnInit(): void {
-     this.pokemonService.getPokemon(1).subscribe((pokemon) => {
-
-    })
   }
 
 }

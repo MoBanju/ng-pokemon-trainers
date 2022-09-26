@@ -13,7 +13,6 @@ export class PokemonService {
 
   private _pokemons: Map<number, Pokemon | PokemonDetailed> = new Map<number, Pokemon | PokemonDetailed>();
   private _next: string = "https:/pokeapi.co/api/v2/pokemon/";
-  private _limit: number = 10;
 
   constructor(
     private readonly http: HttpClient,
@@ -27,7 +26,7 @@ export class PokemonService {
     let pokemon = this._pokemons.get(id) as PokemonDetailed;
     let url = "https://pokeapi.co/api/v2/pokemon/" + id + "/";
     if(typeof pokemon !== "undefined" && pokemon.isDetailed === true)
-      return new BehaviorSubject<PokemonDetailed>(pokemon);
+      return of(pokemon);
     return this.http.get<PokemonDetailedApiResponse>(url)
       .pipe(
         map((pokemon): PokemonDetailed => {

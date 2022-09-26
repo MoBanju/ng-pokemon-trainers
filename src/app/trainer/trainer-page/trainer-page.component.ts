@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Pokemon } from 'src/app/models/pokemon.model';
+import { Trainer } from 'src/app/models/trainer.model';
+import { PokemonService } from 'src/app/services/pokemon.service';
 import { TrainerService } from 'src/app/services/trainer.service';
 
 @Component({
@@ -8,14 +11,20 @@ import { TrainerService } from 'src/app/services/trainer.service';
 })
 export class TrainerPageComponent implements OnInit {
 
-  constructor(private readonly trainerService: TrainerService) { }
+  private _trainer?: Trainer;
+
+  get trainer() {
+    return this._trainer;
+  }
+
+  constructor(private readonly trainerService: TrainerService, private readonly pokemonService: PokemonService) { }
 
   public logout(){
     this.trainerService.logout()
-    console.log("logout")
   }
 
   ngOnInit(): void {
+    this._trainer = this.trainerService.trainer
   }
 
 }

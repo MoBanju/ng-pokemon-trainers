@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { LocalStorageService } from 'src/app/services/local-storage.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { Pokemon } from 'src/app/models/pokemon.model';
 
 @Component({
   selector: 'app-collected-pokemon-list',
@@ -8,8 +8,8 @@ import { LocalStorageService } from 'src/app/services/local-storage.service';
 })
 export class CollectedPokemonListComponent implements OnInit {
 
-  constructor(private readonly userService: LocalStorageService) { }
-  pokemons = this.userService.getPokemons();
+  constructor() { }
+  @Input() pokemons?: Pokemon[];
 
   ngOnInit(): void {
   }
