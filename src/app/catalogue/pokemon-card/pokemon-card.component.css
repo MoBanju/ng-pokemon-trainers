@@ -13,13 +13,14 @@
     font-family: SimSun-ExtB;
     font-size: 40px;
     padding: 20px;
+    margin: 10px;
 }
 
 .is-collected-check {
   position: absolute;
   top: -8px;
   right: 9px;
-  font-size: 3em;
+  font-size: 1.5em;
   color: tomato;
 }
 

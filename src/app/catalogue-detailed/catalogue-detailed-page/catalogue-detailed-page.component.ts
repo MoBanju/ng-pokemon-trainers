@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { PokemonDetailed } from 'src/app/models/pokemon-detailed.model';
 import { PokemonService } from 'src/app/services/pokemon.service';
@@ -16,6 +17,7 @@ export class CatalogueDetailedPageComponent implements OnInit {
   constructor(
     private readonly pokemonService: PokemonService,
     private readonly route: ActivatedRoute,
+    private readonly location: Location,
   ) { }
 
   ngOnInit(): void {
@@ -28,6 +30,10 @@ export class CatalogueDetailedPageComponent implements OnInit {
         console.log(error);
       }
     })
+  }
+
+  public handleGoBack() {
+    this.location.back();
   }
 
 }
