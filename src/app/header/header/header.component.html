@@ -1,6 +1,14 @@
 <header>
     <img src="https://th.bing.com/th/id/R.71160bfb1d0b51f8d38149a4c2dfe3e1?rik=GIJfJt%2b9CdfPNw&pid=ImgRaw&r=0" alt="pokeball" width="70px">
-    <app-user-logo></app-user-logo>
-    <a href="/catalogue"><p>Catalogue</p></a>
-    <app-logout (logout)="logout()"></app-logout>
+    <app-user-logo></app-user-logo>    
+    <nav>
+        <ul>
+            <li><a href="#">Menu</a>
+              <ul>
+                <li class="dropdown"><a href="/catalogue">Catalogue</a></li>
+                <li class="dropdown"><a><app-logout (logout)="logout()"></app-logout></a></li>
+              </ul>
+            </li>
+        </ul> 
+    </nav>
 </header>
