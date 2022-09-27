@@ -1,0 +1,15 @@
+.page-nav-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
+}
+
+.page-nav-container * {
+    font-size: 2em;
+    padding: 0.5em;
+}
+
+.page-nav-button:hover {
+    background-color: rgb(195, 233, 130);
+    border-radius: 1em;
+}

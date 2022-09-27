@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, mergeMap, Observable, of, tap } from 'rxjs';
 import { PokemonDetailed } from '../models/pokemon-detailed.model';
@@ -12,14 +12,24 @@ import { PokemonDetailedApiResponse } from '../models/pokemonDetailedApiResponse
 export class PokemonService {
 
   private _pokemons: Map<number, Pokemon | PokemonDetailed> = new Map<number, Pokemon | PokemonDetailed>();
-  private _next: string = "https:/pokeapi.co/api/v2/pokemon/";
+  private _next: string = "https://pokeapi.co/api/v2/pokemon/?limit=10&offset=1";
+  private _limit: number = 10;
+  
 
   constructor(
     private readonly http: HttpClient,
   ) { }
 
+  get limit(): number {
+    return this._limit;
+  }
+
   get Pokemons(): Pokemon[] {
     return [... this._pokemons.values()];
+  }
+
+  getPokemonRange(offset: number, limit: number) {
+    return [... this.Pokemons.values()].slice(offset, offset + limit);
   }
 
   getPokemon(id: number): Observable<PokemonDetailed> {
