@@ -14,5 +14,4 @@ export class UserLogoComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
