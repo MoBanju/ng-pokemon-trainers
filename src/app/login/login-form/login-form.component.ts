@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Trainer } from 'src/app/models/trainer.model';
 import { TrainerService } from 'src/app/services/trainer.service';
-import { LocalStorageService } from 'src/app/services/local-storage.service';
+import { UserService } from 'src/app/services/local-storage.service';
 
 @Component({
   selector: 'app-login-form',
@@ -16,19 +16,19 @@ export class LoginFormComponent {
 
   constructor(
     private readonly trainerService: TrainerService,
-    private readonly userService: LocalStorageService) { }
+  ) { }
 
   loginSubmit(loginForm: NgForm): void{
 
     const{username} = loginForm.value;
     
     this.trainerService.login(username).subscribe({
-      next: (user: Trainer) => {
-        this.userService.user=user;
+      next: (trainer: Trainer) => {
+        this.trainerService.trainer = trainer;
         this.login.emit();
       },
-      error: () => {
-
+      error: (error) => {
+        console.log(error)
       }
     })
   }

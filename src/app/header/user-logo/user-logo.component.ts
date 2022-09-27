@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { LocalStorageService } from 'src/app/services/local-storage.service';
+import { Trainer } from 'src/app/models/trainer.model';
+import { TrainerService } from 'src/app/services/trainer.service';
 
 @Component({
   selector: 'app-user-logo',
@@ -7,11 +8,11 @@ import { LocalStorageService } from 'src/app/services/local-storage.service';
   styleUrls: ['./user-logo.component.css']
 })
 export class UserLogoComponent implements OnInit {
-  constructor(private readonly userService: LocalStorageService) { }
-  username = this.userService.getUsername();
+  constructor() { }
+
+  @Input() trainer?: Trainer;
 
   ngOnInit(): void {
-    
   }
 
 }

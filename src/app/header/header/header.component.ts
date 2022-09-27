@@ -10,11 +10,6 @@ import { TrainerService } from 'src/app/services/trainer.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  //constructor() { }
-
-  //ngOnInit(): void {
-    
-  //}
 
   private _trainer?: Trainer;
 
@@ -28,7 +23,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._trainer = this.trainerService.trainer
+    this.trainerService.trainer$.subscribe(trainer => {this._trainer = trainer});
   }
 
 }

@@ -17,14 +17,15 @@ export class TrainerPageComponent implements OnInit {
     return this._trainer!;
   }
 
-  constructor(private readonly trainerService: TrainerService, private readonly pokemonService: PokemonService) { }
+  constructor(private readonly trainerService: TrainerService) { }
 
   public logout(){
     this.trainerService.logout()
   }
 
   ngOnInit(): void {
-    this._trainer = this.trainerService.trainer
+    this._trainer = this.trainerService.trainer;
+    this.trainerService.trainer$.subscribe(trainer => {this._trainer = trainer});
   }
 
 }

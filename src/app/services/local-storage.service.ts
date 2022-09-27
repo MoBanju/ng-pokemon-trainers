@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { StorageKeys } from '../enums/storage-keys.enum';
 import { Trainer } from '../models/trainer.model';
 import { StorageUtil } from '../utils/storage.util';
@@ -6,7 +7,7 @@ import { StorageUtil } from '../utils/storage.util';
 @Injectable({
   providedIn: 'root'
 })
-export class LocalStorageService {
+export class UserService {
 
   private _user?: Trainer;
 

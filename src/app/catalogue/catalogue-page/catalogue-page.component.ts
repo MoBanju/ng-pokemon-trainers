@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Pokemon } from 'src/app/models/pokemon.model';
+import { Trainer } from 'src/app/models/trainer.model';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { TrainerService } from 'src/app/services/trainer.service';
 import { CollectPokemonEvent } from '../pokemon-card/pokemon-card.component';
@@ -12,6 +13,7 @@ import { CollectPokemonEvent } from '../pokemon-card/pokemon-card.component';
 })
 export class CataloguePageComponent implements OnInit {
 
+  private _trainer?: Trainer = undefined;
   private _currentPage: BehaviorSubject<number> = new BehaviorSubject<number>(1);
 
   get pokemons(): Pokemon[] {
@@ -21,7 +23,7 @@ export class CataloguePageComponent implements OnInit {
   }
 
   get collectedPokemon(): Pokemon[] {
-    return this.trainerService.trainer?.pokemon || [];
+    return this._trainer?.pokemon || [];
   }
 
   get currentPage(): number {
@@ -42,6 +44,8 @@ export class CataloguePageComponent implements OnInit {
       if(this.pokemonService.Pokemons.length < currentPage * limit)
         this.pokemonService.Next();
     });
+    this._trainer = this.trainerService.trainer;
+    this.trainerService.trainer$.subscribe(trainer => this._trainer = trainer);
   }
 
   collectPokemon({pokemon, callBack}: CollectPokemonEvent) {
