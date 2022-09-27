@@ -1,5 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-logout',
@@ -9,7 +8,7 @@ import { Router } from '@angular/router';
 export class LogoutComponent {
 
   @Output() logout: EventEmitter<void> = new EventEmitter()
-  constructor(private readonly router: Router) { }
+  constructor() { }
 
   handleLogout(): void{
     this.logout.emit()
