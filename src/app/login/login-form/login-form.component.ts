@@ -26,9 +26,6 @@ export class LoginFormComponent {
       next: (user: Trainer) => {
         this.userService.user=user;
         this.login.emit();
-      },
-      error: () => {
-
       }
     })
   }

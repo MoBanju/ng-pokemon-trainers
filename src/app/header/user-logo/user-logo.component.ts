@@ -9,9 +9,7 @@ import { LocalStorageService } from 'src/app/services/local-storage.service';
 export class UserLogoComponent implements OnInit {
   constructor(private readonly userService: LocalStorageService) { }
   username = this.userService.getUsername();
-
+  
   ngOnInit(): void {
-    
   }
-
 }
