@@ -18,7 +18,7 @@ body{ margin:0; font-family:'tahoma'}
 
 nav {
   margin:0 auto;
-  width:10%;
+  width:fit-content;
   height:auto;
   display:inline-block;
   background:rgb(207, 239, 152);
@@ -26,6 +26,7 @@ nav {
   float: right;
   margin-top: -70px;
   margin-right: 30px;
+
 }
 
 nav ul {
