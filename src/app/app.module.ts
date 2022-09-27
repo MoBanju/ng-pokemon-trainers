@@ -7,7 +7,7 @@ import { LoginFormComponent } from './login/login-form/login-form.component';
 import { TrainerPageComponent } from './trainer/trainer-page/trainer-page.component';
 import { CollectedPokemonListComponent } from './trainer/collected-pokemon-list/collected-pokemon-list.component';
 import { CollectedPokemonListItemComponent } from './trainer/collected-pokemon-list-item/collected-pokemon-list-item.component';
-import { LogoutComponent } from './trainer/logout/logout.component';
+import { LogoutComponent } from './header/logout/logout.component';
 import { CataloguePageComponent } from './catalogue/catalogue-page/catalogue-page.component';
 import { PokemonListComponent } from './catalogue/pokemon-list/pokemon-list.component';
 import { PokemonCardComponent } from './catalogue/pokemon-card/pokemon-card.component';

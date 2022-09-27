@@ -11,7 +11,7 @@ export class CollectedPokemonListItemComponent implements OnInit {
   constructor() {}
 
   @Input() pokemon?: Pokemon;
-
+  
   ngOnInit(): void {
   }
 
