@@ -12,7 +12,13 @@ The application have a login, catalogue and trainer page. The login page will ta
 
 
 ## Prototype
+
+### Component Tree
+Changes comparing to the Prototype:
+- The logout button has been moved from Trainer Page to the Header
 ![component-tree](./docs/component_tree.png)
+
+### Services
 ![service](./docs/services.png)
 
 

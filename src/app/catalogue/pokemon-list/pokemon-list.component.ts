@@ -1,8 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { Pokemon } from '../../models/pokemon.model';
-import { PokemonService } from 'src/app/services/pokemon.service';
-import { Observable } from 'rxjs';
+import { CollectPokemonEvent } from '../pokemon-card/pokemon-card.component';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -12,11 +11,10 @@ import { Observable } from 'rxjs';
 export class PokemonListComponent implements OnInit {
 
   @Input() pokemons?: Pokemon[];
+  @Input() collectedPokemon: Pokemon[] = [];
 
   @Output() getPokemons: EventEmitter<void> = new EventEmitter();
-
-  
-  @Output() capturePokemon: EventEmitter<Pokemon> = new EventEmitter();
+  @Output() collectPokemon: EventEmitter<CollectPokemonEvent> = new EventEmitter();
   constructor() { }
 
   ngOnInit(): void {
@@ -28,9 +26,12 @@ export class PokemonListComponent implements OnInit {
       this.getPokemons.emit();
   }
 
-  handleCapturePokemon(pokemon: Pokemon){
-    this.capturePokemon.emit(pokemon)
-    console.log("list "+ pokemon.name)
+  handleCollectPokemon(capturePokemonEvent: CollectPokemonEvent){
+    this.collectPokemon.emit(capturePokemonEvent)
+  }
+
+  isPokemonCollected(pokemon: Pokemon) {
+    return this.collectedPokemon.some(collectedPokemon => collectedPokemon.id === pokemon.id);
   }
 
 }

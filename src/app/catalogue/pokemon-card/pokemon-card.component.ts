@@ -1,6 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Pokemon } from 'src/app/models/pokemon.model';
 
+export interface CollectPokemonEvent {
+  pokemon: Pokemon,
+  callBack: () => void,
+}
+
 @Component({
   selector: 'app-pokemon-card',
   templateUrl: './pokemon-card.component.html',
@@ -9,13 +14,26 @@ import { Pokemon } from 'src/app/models/pokemon.model';
 export class PokemonCardComponent implements OnInit {
 
   @Input() pokemon?: Pokemon; 
-  @Output() capturePokemon= new EventEmitter<Pokemon>()
+  @Input() isCollected: Boolean = false;
 
-  constructor() { }
+  @Output() collectPokemon= new EventEmitter<CollectPokemonEvent>()
+
+  isLoading = false;
+
+  constructor(
+  ) { }
 
   ngOnInit(): void {
   }
-  handleCapturePokemon(){
-    this.capturePokemon.emit(this.pokemon)
+
+  handleCollectPokemon(){
+    if(typeof this.pokemon === "undefined") return;
+    this.isLoading = true;
+    this.collectPokemon.emit({pokemon: this.pokemon!, callBack: this.toggleIsLoading.bind(this)});
+  }
+
+  toggleIsLoading() {
+    console.log("toggle is loading!")
+    this.isLoading = !this.isLoading;
   }
 }
