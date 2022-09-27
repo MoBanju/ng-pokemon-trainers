@@ -84,7 +84,33 @@ export class TrainerService {
       )
       .subscribe({
         next: (newTrainer) => {
-          this._trainer$.next(newTrainer);
+          this.trainer = newTrainer;
+        },
+        error: (error: HttpErrorResponse) => {
+          console.log(error.message);
+        }
+      }
+      )
+  }
+
+  public releasePokemon(pokemon: Pokemon){
+    let trainer = this._trainer$.value;
+    if (!trainer) {
+      return
+    }
+    const headers = new HttpHeaders({
+      "Content-Type": "application/json",
+      "x-api-key": apiKey
+    })
+    this.http.patch<Trainer>(`${apiTrainers}/${trainer.id}`, {
+      ...trainer,
+      pokemon: trainer.pokemon.filter(collectedPokemon => collectedPokemon.id !== pokemon.id)
+    }, {
+      headers: headers
+    })
+      .subscribe({
+        next: (newTrainer) => {
+          this.trainer = newTrainer
         },
         error: (error: HttpErrorResponse) => {
           console.log(error.message);

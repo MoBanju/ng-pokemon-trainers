@@ -11,7 +11,9 @@ export class LogoutComponent {
   constructor() { }
 
   handleLogout(): void{
-    this.logout.emit()
+    if(confirm("Are you sure you want to log out?")){
+      this.logout.emit()
+    }
 
   }
 }

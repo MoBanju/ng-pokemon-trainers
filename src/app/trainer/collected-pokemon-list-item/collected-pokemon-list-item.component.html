@@ -4,5 +4,6 @@
         <div class="card-body">
                 <h5>{{pokemon!.name}}</h5>
                 <a class="card-button" [routerLink]="['../catalogue/', pokemon!.id]">Details</a>
+                <button class="release-btn" (click)="handleRelease()">Release</button>
         </div>
 </div> 

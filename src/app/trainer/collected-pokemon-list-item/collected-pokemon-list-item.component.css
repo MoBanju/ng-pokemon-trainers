@@ -32,7 +32,7 @@
     margin-bottom: .75rem;
 }
 
-.card-button {
+.card-button, .release-btn{
     display: inline-block;
     margin: 4px;
     font-weight: 400;
@@ -54,4 +54,9 @@
 
 .card-button:visited {
     display: none;
+}
+
+.release-btn{
+    background-color: rgb(245, 101, 101);
+    border: 1px solid rgb(245, 101, 101);
 }
