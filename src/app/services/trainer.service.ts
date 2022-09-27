@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Trainer } from '../models/trainer.model';
-import { Observable, map, of, switchMap } from 'rxjs'
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, map, of, switchMap, tap, finalize } from 'rxjs'
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { LocalStorageService } from './local-storage.service';
 import { StorageUtil } from '../utils/storage.util';
@@ -39,7 +39,7 @@ export class TrainerService {
     this.router.navigateByUrl("/login")
   }
 
-  public capturePokemon(pokemon: Pokemon){
+  public collectPokemon(pokemon: Pokemon, callBack: () => void){
     if (!this.trainer){
       return
     }
@@ -59,14 +59,18 @@ export class TrainerService {
     }, {
       headers: headers
     })
+    .pipe(
+      finalize(callBack),
+    )
     .subscribe({
       next: (newTrainer) => {
-        this.localStorageService.user = newTrainer
+        this.localStorageService.user = newTrainer;
       },
-      error: (e) => {
-        console.log(e)
+      error: (error: HttpErrorResponse) => {
+        console.log(error.message);
       }
-    })
+    }
+    )
   }
 
   //Check if user exists

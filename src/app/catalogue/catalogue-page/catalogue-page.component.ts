@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Pokemon } from 'src/app/models/pokemon.model';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { TrainerService } from 'src/app/services/trainer.service';
+import { CollectPokemonEvent } from '../pokemon-card/pokemon-card.component';
 
 @Component({
   selector: 'app-catalogue-page',
@@ -12,6 +13,10 @@ export class CataloguePageComponent implements OnInit {
 
   get pokemons() {
     return this.pokemonService.Pokemons;
+  }
+
+  get collectedPokemon() {
+    return this.trainerService.trainer?.pokemon || [];
   }
 
   constructor(
@@ -28,9 +33,8 @@ export class CataloguePageComponent implements OnInit {
     this.pokemonService.Next();
   }
 
-  capturePokemon(pokemon: Pokemon) {
-    this.trainerService.capturePokemon(pokemon)
-    console.log("cata " +  pokemon.name)
+  collectPokemon({pokemon, callBack}: CollectPokemonEvent) {
+    this.trainerService.collectPokemon(pokemon, callBack);
   }
 
 }

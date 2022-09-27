@@ -1,8 +1,17 @@
 <div *ngIf="pokemon" class="card">
+        <span class="is-collected-check"
+                *ngIf="isCollected">
+                ✔
+        </span>
         <img [src]="pokemon.image" class="card-img">
         <div class="card-body">
                 <h5>{{pokemon.name}}</h5>
-                <a [routerLink]="pokemon.id.toString()" class="card-button">Details</a>
-                <button (click)="handleCapturePokemon()" class="btn-capture">Capture!</button>
+                <div class="card-btns">
+                        <a [routerLink]="pokemon.id.toString()" class="card-button">Details</a>
+                        <img src="../../../assets/pokeball.svg"
+                                (click)="handleCollectPokemon()"
+                                [ngClass]="isLoading ? 'shake-pokeball' : ''"
+                                *ngIf="!isCollected"/>
+                </div>
         </div>
 </div>
