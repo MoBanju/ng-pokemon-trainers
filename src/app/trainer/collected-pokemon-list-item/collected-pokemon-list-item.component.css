@@ -2,6 +2,7 @@
     position: relative;
     display: flex;
     -ms-flex-direction: column;
+    flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
     background-color: rgb(201, 224, 164, 0.8);
@@ -9,6 +10,7 @@
     border: 1px solid rgba(0, 0, 0, .125);
     border-radius: .25rem;
     margin-bottom: 1em;
+    font-size: 30px;
 }
 
 .card-img {
@@ -29,6 +31,7 @@
 
 .card-button {
     display: inline-block;
+    margin: 4px;
     font-weight: 400;
     color: #212529;
     text-align: center;
