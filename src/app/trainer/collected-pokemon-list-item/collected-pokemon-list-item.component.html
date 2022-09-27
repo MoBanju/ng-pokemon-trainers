@@ -3,6 +3,7 @@
         <img [src]="pokemon!.image" class="card-img">
         <div class="card-body">
                 <h5>{{pokemon!.name}}</h5>
-                <a [routerLink]="" class="card-button">Details</a>
+                <h3>{{pokemon?.id}}</h3>
+                <a class="card-button" [routerLink]="['../catalogue/', pokemon!.id]">Details</a>
         </div>
 </div> 
